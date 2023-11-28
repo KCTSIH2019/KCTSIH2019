@@ -327,30 +327,103 @@
                 <div class="register-form">
                     <h2>Register</h2>
 
-                    <form>
+                    <form method="POST" id="register_form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input name="Name" type="text" class="form-control" placeholder="Name">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input name="Roll No" type="text" class="form-control" placeholder="Roll No">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Phone">
+                            <label>Degree</label>
+                            <select class="form-control" name="Degree">
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <label>Program</label>
+                            <select name="Program" class="form-control">
+                                <option value="Aeronautical_Engineering">Aeronautical Engineering</option>
+                                <option value="Biotechnology">Biotechnology</option>
+                                <option value="Civil_Engineering">Civil Engineering</option>
+                                <option value="Computer_Science_and_Engineering">Computer Science and Engineering</option>
+                                <option value="Electrical_and_Electronics_Engineering">Electrical and Electronics Engineering</option>
+                                <option value="Electronics_and_Communication_Engineering">Electronics & Communication Engineering</option>
+                                <option value="Electronics_and_Instrumentation_Engineering">Electronics & Instrumentation Engineering</option>
+                                <option value="Fashion_Technology">Fashion Technology</option>
+                                <option value="Information_Technology">Information Technology</option>
+                                <option value="Mechanical_Engineering">Mechanical Engineering</option>
+                                <option value="Mechatronics_Engineering">Mechatronics Engineering</option>
+                                <option value="Master_of_Business_Administration">Master of Business Administration</option>
+                                <option value="Master_of_Computer_Applications">Master of Computer Applications</option>
+                                <option value="Textile_Technology">Textile Technology</option>
+                                <option value="Applied_Electronics">Applied Electronics</option>
+                                <option value="Apparel_Technology">Apparel Technology</option>
+                                <option value="CAD_CAM">CAD/CAM</option>
+                                <option value="Communication_Systems">Communication Systems</option>
+                                <option value="Embedded_Systems">Embedded Systems</option>
+                                <option value="Environmental_Engineering">Environmental Engineering</option>
+                                <option value="Industrial_Engineering">Industrial Engineering</option>
+                                <option value="Power_Electronics">Power Electronics</option>
+                                <option value="Structural_Engineering">Structural Engineering</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Confirm Password">
+                            <input name="Contact No" type="text" class="form-control" placeholder="Contact No">
                         </div>
 
-                        <p class="description">The password should be at least eight characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ & )</p>
+                        <div class="form-group">
+                            <input name="Email" type="email" class="form-control" placeholder="Email">
+                        </div>
 
-                        <button type="submit" class="default-btn">Register <span></span></button>
+                        <div class="form-group">
+                            <input name="LinkedIn Profile" type="text" class="form-control" placeholder="LinkedIn Profile">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Would you like to join 10th year celebration of your batch on 23-Dec-2023, Saturday</label>
+                            <select class="form-control" name="Joining">
+                                <option value="yes">YES</option>
+                                <option value="no">NO</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input name="Company" type="text" class="form-control" placeholder="Name of the Current Company/Name of the Current Business">
+                        </div>
+
+                        <div class="form-group">
+                            <input name="Current Designation" type="text" class="form-control" placeholder="Current Designation">
+                        </div>
+
+                        <div class="form-group">
+                            <input name="Job Domain" type="text" class="form-control" placeholder="Job Domain">
+                        </div>
+
+                        <div class="form-group">
+                            <input name="Current Location" type="text" class="form-control" placeholder="Current Location">
+                        </div>
+
+                        <div class="form-group">
+                            <label>T shirt Size </label>
+                            <select class="form-control" name="T-Shirt size">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                                <option value="others">others</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" id="submit" class="default-btn">Register <span></span></button>
                     </form>
                 </div>
             </div>
@@ -535,6 +608,27 @@
         <script src="assets/js/wow.min.js"></script>
         <!-- Custom JS -->
         <script src="assets/js/main.js"></script>
+
+        <script>
+            const form = document.querySelector("#register_form")
+            const submitButton = document.querySelector("#submit")
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzKXp-H4h37JKcPvuMUIkDax9RCohiIimhP0OnIoBceSuAjpnCVU0fIRdFj8MWkkGCp/exec'
+            form.addEventListener('submit', e => {
+              submitButton.disabled = true
+              e.preventDefault()
+              let requestBody = new FormData(form)
+              fetch(scriptURL, { method: 'POST', body: requestBody})
+                .then(response => {
+                   alert('Response Saved successfully!', response)
+                   submitButton.disabled = false
+                  })
+                .catch(error => {
+                alert('Error Occurred!')
+                  submitButton.disabled = false
+                }
+                )
+            })
+         </script>
     </body>
 <!-- Copied from https://templates.envytheme.com/plonk/default/register.html by Cyotek WebCopy 1.8.0.652, 11/10/2023, 3.07.53 AM -->
 </html>
