@@ -3434,7 +3434,7 @@ Blog Area CSS
 Overview Area CSS
 =================================================*/
 .overview-area {
-  background-image: url(../images/overview-bg.jpg);
+  background-image: url(../images/main-banner/banner-bg-2.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3447,7 +3447,7 @@ Overview Area CSS
   content: "";
   height: 100%;
   width: 100%;
-  background-color: #0523a5;
+  background-color: #021324;
   left: 0;
   right: 0;
   top: 0;
